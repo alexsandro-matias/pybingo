@@ -1,45 +1,36 @@
 import random
 
-
 def criacao_cartela():
-    rascunho_cartela = set()
-    b = []
-    i = []
-    n = []
-    g = []
-    o = []
     cartela = {}
+    b = set()
+    i = set()
+    n = set()
+    g = set()
+    o = set()
+    while len(b) < 5:
+        numero_aleatorio = random.randint(1, 15)
+        b.add(numero_aleatorio)
+    while len(i) < 5:
+        numero_aleatorio = random.randint(16, 30)
+        i.add(numero_aleatorio)
+    while len(n) < 4:
+        numero_aleatorio = random.randint(31, 45)
+        n.add(numero_aleatorio)
+    while len(g) < 5:
+        numero_aleatorio = random.randint(46, 60)
+        g.add(numero_aleatorio)
+    while len(o) < 5:
+        numero_aleatorio = random.randint(61, 75)
+        o.add(numero_aleatorio)
+    cartela['b'] = b
+    cartela['i'] = i
+    cartela['n'] = n
+    cartela['g'] = g
+    cartela['o'] = o
 
-    while len(rascunho_cartela) < 24:
-        todos_numeros_bingo = random.randint(1, 76)
-        rascunho_cartela.add(todos_numeros_bingo)
-
-    while len(b) < 4 and len(i) < 4 and len(n) < 3 and len(g) < 4 and len(o) < 4:
-        for numero_do_bingo in rascunho_cartela:
-            if 1 <= numero_do_bingo <= 15:
-                b.append(numero_do_bingo)
-            if 16 <= numero_do_bingo <= 30:
-                i.append(numero_do_bingo)
-            if 31 <= numero_do_bingo <= 45:
-                n.append(numero_do_bingo)
-            if 46 <= numero_do_bingo <= 60:
-                g.append(numero_do_bingo)
-            if 61 <= numero_do_bingo <= 75:
-                o.append(numero_do_bingo)
-
-    print(b)
-    print(i)
-    print(n)
-    print(g)
-    print(o)
-
-    # print(rascunho_cartela)
-    # print(cartela)
-    # return sorted(rascunho_cartela)
-
-
-    return sorted(rascunho_cartela)
+    return cartela
 
 
 a = criacao_cartela()
-# print(a)
+
+print(a)
