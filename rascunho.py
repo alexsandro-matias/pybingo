@@ -1,5 +1,6 @@
 import random
 
+
 def criacao_cartela():
     cartela = {}
     b = set()
@@ -7,21 +8,18 @@ def criacao_cartela():
     n = set()
     g = set()
     o = set()
-    while len(b) < 5:
-        numero_aleatorio = random.randint(1, 15)
-        b.add(numero_aleatorio)
-    while len(i) < 5:
-        numero_aleatorio = random.randint(16, 30)
-        i.add(numero_aleatorio)
-    while len(n) < 4:
-        numero_aleatorio = random.randint(31, 45)
-        n.add(numero_aleatorio)
-    while len(g) < 5:
-        numero_aleatorio = random.randint(46, 60)
-        g.add(numero_aleatorio)
-    while len(o) < 5:
-        numero_aleatorio = random.randint(61, 75)
-        o.add(numero_aleatorio)
+
+    def preenchimento_letras(letra, quantidade_numeros, limite_inferior, limite_superior):
+        while len(letra) < quantidade_numeros:
+            numero_aleatorio = random.randint(limite_inferior, limite_superior)
+            letra.add(numero_aleatorio)
+
+    preenchimento_letras(b, 5, 1, 15)
+    preenchimento_letras(i, 5, 16, 30)
+    preenchimento_letras(n, 4, 31, 45)
+    preenchimento_letras(g, 5, 46, 60)
+    preenchimento_letras(o, 5, 61, 75)
+
     cartela['b'] = b
     cartela['i'] = i
     cartela['n'] = n
@@ -29,6 +27,11 @@ def criacao_cartela():
     cartela['o'] = o
 
     return cartela
+
+
+a = criacao_cartela()
+
+print(a)
 
 
 a = criacao_cartela()
